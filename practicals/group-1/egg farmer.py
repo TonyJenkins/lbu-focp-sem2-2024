@@ -15,26 +15,29 @@
 
 if __name__ == '__main__':
 
-    collected_eggs = int(input("How many eggs you've been collected: "))
-
-    box_12 = collected_eggs//12
-    remaining_eggs = collected_eggs % 12
-
-    print(f"You will need {box_12} boxes of 12 eggs")
-    print (f"You have {remaining_eggs} left after making up 12 eggs a box.")
-
-    if remaining_eggs>=6:
-        box_6 = 1
-        breakfast_eggs = remaining_eggs - 6
-
-    elif remaining_eggs<6:
-        box_6 = 0
-        breakfast_eggs = remaining_eggs 
-
-    if box_6:
-        print ("You will need 1 box of 6 eggs.")
+    try:
+        collected_eggs = int(input("How many eggs you've been collected: "))
+    except ValueError:
+        print('Error: Number of eggs must be an integer!')
     else:
-        print ("You won't need a box of 6 eggs")
+        box_12 = collected_eggs//12
+        remaining_eggs = collected_eggs % 12
 
-    print (f"You will have {breakfast_eggs} eggs left for breakfast.")
+        print(f"You will need {box_12} boxes of 12 eggs")
+        print (f"You have {remaining_eggs} left after making up 12 eggs a box.")
+
+        if remaining_eggs>=6:
+            box_6 = 1
+            breakfast_eggs = remaining_eggs - 6
+
+        elif remaining_eggs<6:
+            box_6 = 0
+            breakfast_eggs = remaining_eggs 
+
+        if box_6:
+            print ("You will need 1 box of 6 eggs.")
+        else:
+            print ("You won't need a box of 6 eggs")
+
+        print (f"You will have {breakfast_eggs} eggs left for breakfast.")
 
